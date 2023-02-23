@@ -1,0 +1,78 @@
+/* --- Colors */
+
+#topnav {
+    background: white;
+    box-shadow: 0 0 27px 9px lightgray;
+ }
+ 
+ #topnav .logo {
+    color: white;
+    background: black;
+ }
+ 
+ #topnav .nav-link,
+ #topnav .time {
+    color: black;
+    background: white;
+ }
+ 
+ #topnav .nav-link.current,
+ #topnav .nav-link:hover,
+ #topnav .time:hover {
+    background: whitesmoke;
+ }
+ 
+ /* --- Typography */
+ 
+ #topnav .logo {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+ }
+ 
+ #topnav .nav-link,
+ #topnav .time {
+    font-size: 15px;
+    text-decoration: none;
+ }
+ 
+ /* --- Sizing & Aligning */
+ 
+ body {
+    padding-top: 42px;
+ }
+ 
+ #topnav {
+    width: 100%;
+    height: 42px;
+    overflow: hidden;
+    text-align: center;
+ 
+    position: fixed;
+    top: 0;
+    left: 0;
+ }
+ 
+ #topnav .logo,
+ #topnav .nav-link,
+ #topnav .time {
+    display: inline-block;
+    height: 42px;
+    padding: 0 18px;
+    
+    line-height: 42px;
+ }
+ 
+ #topnav .logo {
+    padding: 0 24px;
+ 
+    position: absolute;
+    top: 0;
+    left: 0;
+ }
+ 
+ #topnav .time {
+    position: absolute;
+    top: 0;
+    right: 0;
+ }
