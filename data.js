@@ -5,6 +5,8 @@ const Category = require("./views/type/Category");
 // bai viet
 const Entry = require("./views/type/Entry");
 
+const Article = require("./views/type/Article");
+
 /* TopNav... */
 var category1 = new Category()
    .set("@id", "01")
@@ -69,7 +71,7 @@ data.set("entry-list", [
 ]);
 
 
-var contentMarkdown = `
+var contentHTML = `
 > "There is no one who wants pain itself, who seeks after it and 
 > wants to have it, simply because they have been holding it along..."
 

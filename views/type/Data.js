@@ -20,6 +20,9 @@ const Data = class extends Map {
         /* --- article/add.ejs */
         this.set("endpoint", "");
 
+        /* --- article/add.ejs */
+        this.set("article", "");
+
        return this;
     }
  }; // Data
