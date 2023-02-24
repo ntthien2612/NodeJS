@@ -1,63 +1,28 @@
-// import data
-const Data = require("../views/type/Data");
-// menu
-const Category = require("../views/type/Category");
-// bai viet
-const Entry = require("../views/type/Entry");
+const Article = require("../database/type/Article");
+const Category = require("../database/type/Category");
 
-var category1 = new Category()
-   .set("name", "Html")
-   .set("url" , "/category/view/01");
+const articleProcedure = new Map()
+   .set("insert", require("../database/procedure/Article/insert--async-throw"))
+   .set("select-by-id", require("../database/procedure/Article/select-by-id--async-throw"))
+   .set("update", require("../database/procedure/Article/update--async-throw"))
+   .set("delete-by-id", require("../database/procedure/Article/delete-by-id--async-throw"));
 
-var category2 = new Category()
-   .set("name", "Css")
-   .set("url" , "/category/view/02");
+const categoryProcedure = new Map()
+   .set("insert", require("../database/procedure/Category/insert--async-throw"))
+   .set("select-by-id", require("../database/procedure/Category/select-by-id--async-throw"))
+   .set("update", require("../database/procedure/Category/update--async-throw"))
+   .set("delete-by-id", require("../database/procedure/Category/delete-by-id--async-throw"));
 
-var category3 = new Category()
-   .set("name", "Bootstrap")
-   .set("url" , "/category/view/03");
+const storedProcedure = new Map()
+   .set(Article.name, articleProcedure)
+   .set(Category.name, categoryProcedure);
 
-var category4 = new Category()
-   .set("name", "JavaScript")
-   .set("url" , "/category/view/04");
-
-var category5 = new Category()
-   .set("name", "jQuery")
-   .set("url" , "/category/view/05");
-
-var category6 = new Category()
-   .set("name", "NodeJS")
-   .set("url" , "/category/view/06");
-
-var category7 = new Category()
-   .set("name", "ExpressJS")
-   .set("url" , "/category/view/07");
-
-var data = new Data()
-   .set("category-list", [
-      category1,
-      category2,
-      category3,
-      category4,
-      category5,
-      category6,
-      category7
-   ]);
-
-
-var entry1 = new Entry()
-   .set("title", "Bài Viết Thứ 1001")
-   .set("excerpt", "Nội dung trích đoạn mở đầu bài viết thứ 1001 ...")
-   .set("url", "/article/view/1000");
-
-var entry2 = new Entry()
-   .set("title", "Bài Viết Thứ 1000")
-   .set("excerpt", "Nội dung trích đoạn mở đầu bài viết thứ 1001 ...")
-   .set("url", "/article/view/999");
-
-data.set("entry-list", [
-   entry1,
-   entry2
-]);
-
-module.exports = data;
+exports.execute = async ( 
+   typeName, procedureName,
+   ...parameters
+) => {
+   await storedProcedure
+      .get(typeName)
+      .get(procedureName)
+      .call(null, ...parameters);
+}; // exports.execute
