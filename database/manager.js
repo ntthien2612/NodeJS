@@ -1,17 +1,17 @@
-const Article = require("../database/type/Article");
-const Category = require("../database/type/Category");
+const Article = require("./type/Article");
+const Category = require("./type/Category");
 
 const articleProcedure = new Map()
-   .set("insert", require("../database/procedure/Article/insert--async-throw"))
-   .set("select-by-id", require("../database/procedure/Article/select-by-id--async-throw"))
-   .set("update", require("../database/procedure/Article/update--async-throw"))
-   .set("delete-by-id", require("../database/procedure/Article/delete-by-id--async-throw"));
+   .set("insert", require("./procedure/Article/insert--async-throw"))
+   .set("select-by-id", require("./procedure/Article/select-by-id--async-throw"))
+   .set("update", require("./procedure/Article/update--async-throw"))
+   .set("delete-by-id", require("./procedure/Article/delete-by-id--async-throw"));
 
 const categoryProcedure = new Map()
-   .set("insert", require("../database/procedure/Category/insert--async-throw"))
-   .set("select-by-id", require("../database/procedure/Category/select-by-id--async-throw"))
-   .set("update", require("../database/procedure/Category/update--async-throw"))
-   .set("delete-by-id", require("../database/procedure/Category/delete-by-id--async-throw"));
+   .set("insert", require("./procedure/Category/insert--async-throw"))
+   .set("select-by-id", require("./procedure/Category/select-by-id--async-throw"))
+   .set("update", require("./procedure/Category/update--async-throw"))
+   .set("delete-by-id", require("./procedure/Category/delete-by-id--async-throw"));
 
 const storedProcedure = new Map()
    .set(Article.name, articleProcedure)

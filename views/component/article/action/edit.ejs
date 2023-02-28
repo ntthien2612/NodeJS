@@ -1,17 +1,25 @@
-<!doctype html>
-<html>
-<head>
-   <title> <%= data.get("title") %> </title>
+<form id="article" action="<%= data.get("endpoint") %>" method="post">
+   <div class="container">
+      <input class="hidden" type="text" name="@id"
+             value="<%= data.get("article").get("@id") %>" />
 
-   <meta charset="utf-8" />
-   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <input type="text" name="title"
+             value="<%= data.get("article").get("title") %>" />
 
-   <link rel="stylesheet" href="/css/style.css" />
-</head>
-<body>
-   <input type="text" value="<%= data.get("title") %>" />
+      <input type="text" name="keywords" placeholder="Từ khóa liên quan..."
+             value="<%= data.get("article").get("keywords") %>" />
 
-   <script src="/js/main.js"></script>
-</body>
-</html>
+      <select name="category-id">
+         <option> Danh Mục </option>
+      <% for (var category of data.get("category-list")) { %>
+         <option value="<%= category.get("@id") %>">
+            <%= category.get("name") %>
+         </option>
+      <% } %>
+      </select>
+
+      <button type="submit"> Đăng bài </button>
+
+      <textarea name="content" placeholder="Nội dung bài viết..."><%= data.get("article").get("content") %></textarea>
+   </div><!-- .container -->
+</form>

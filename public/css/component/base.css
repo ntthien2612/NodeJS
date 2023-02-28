@@ -20,3 +20,8 @@
     padding: 0 27px;
     margin: 0 auto;
  }
+
+ 
+.hidden {
+   display: none;
+}
