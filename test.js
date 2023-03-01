@@ -39,19 +39,50 @@
 const Category = require("./database/type/Category");
 const databaseManager = require("./database/manager");
 
+// void async function() {
+//    var newRecord = new Category()
+//       .set("@id", "Infinity")
+//       .set("name", "webdev")
+//       .set("keywords", ["tutorial", "web"])
+//       .set("content", "Looonggg... content...");
+
+//    var inserted = new Category();
+
+//    await databaseManager.execute(
+//       Category.name, "insert",
+//       newRecord, inserted
+//    );
+
+//    console.log(inserted);
+// } (); // void
+
+// void async function() {
+//    var selected = new Category();
+//    await databaseManager.execute(
+//       Category.name, "select-by-id",
+//       "04", selected
+//    );
+
+//    console.log(selected);
+// } (); // void
+
+
+
+// void async function() {
+//    var selected = new Category();
+//    var updated = new Category();
+
+//    await databaseManager.execute(Category.name, "select-by-id", "01", selected);
+//    selected.set("name", "Web Development");
+//    await databaseManager.execute(Category.name, "update", selected, updated);
+//    console.log(updated);
+// } (); // void
+
 void async function() {
-   var newRecord = new Category()
-      .set("@id", "Infinity")
-      .set("name", "webdev")
-      .set("keywords", ["tutorial", "web"])
-      .set("content", "Looonggg... content...");
-
-   var inserted = new Category();
-
+   var deleted = new Category();
    await databaseManager.execute(
-      Category.name, "insert",
-      newRecord, inserted
+      Category.name, "delete-by-id",
+      "02", deleted
    );
-
-   console.log(inserted);
+   console.log(deleted);
 } (); // void
